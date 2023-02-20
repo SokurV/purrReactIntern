@@ -9,6 +9,11 @@ const browserSync = require('browser-sync').create()
 const uglify = require('gulp-uglify-es').default
 const babel = require('gulp-babel')
 const deletefiles = require('gulp-clean')
+const changed = require('gulp-changed')
+const webpConv = require('gulp-webp')
+const plumber = require('gulp-plumber')
+const ttf2woff2 = require('gulp-ttftowoff2')
+const ttf2woff = require('gulp-ttf2woff')
 
 async function startServer() {
     browserSync.init({
@@ -69,40 +74,61 @@ function watching(){
     watch('src/pages/*.html', pages)
     watch('src/**/*.sass', styles)
     watch(['src/**/*.js', '!src/js/*.min.js'], dev_js)
-    watch('src/images/**/*.+(png|jpg|jpeg|gif|svg|ico)', copyImg)
-    watch('src/fonts/**/*.+(otf|ttf)', copyFonts)
 }
 
 function copyImg(){
-    return src('src/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
-        .pipe(dest('dist/images'))
+    return src('src/assets/**/*.+(png|jpg|jpeg|gif|ico)')
+        .pipe(dest('dist/assets'))
 }
 
-function copyVideo(){
-    return src('src/video/**/*.+(MP4)')
-        .pipe(dest('dist/video'))
-}
-
-function copyFonts(){
-    return src('src/fonts/**/*.+(otf|ttf)')
-        .pipe(dest('dist/fonts'))
+function webpConvert(){
+	return src('src/assets/**/*.+(png|jpg|jpeg|gif|ico)')
+		.pipe(plumber())
+		.pipe(changed('dist/assets', {
+			extension: '.webp'
+		}))
+		.pipe(webpConv())
+		.pipe(dest('src/assets'))
+		.pipe(dest('dist/assets'))
 }
 
 function copySvg(){
-    return src('src/svg/**/*.svg')
-        .pipe(dest('dist/svg'))
+    return src('src/assets/**/*.svg')
+        .pipe(dest('dist/assets'))
+}
+
+function copyFonts(){
+    return src('src/fonts/**/*.+(woff|woff2)')
+        .pipe(dest('dist/fonts'))
+}
+
+function fontsConvertToWoff(){
+    return src('src/fonts/**/*.+(ttf|otf)')
+        .pipe(changed('dist/fonts', {
+                extension: '.woff',
+                hasChanged: changed.compareLastModifiedTime
+            }))
+        .pipe(ttf2woff())
+        .pipe(dest('dist/fonts'))
+}
+
+function fontsConvertToWoff2(){
+    return src('src/fonts/**/*.+(ttf|otf)')
+        .pipe(changed('dist/fonts', {
+                extension: '.woff2',
+                hasChanged: changed.compareLastModifiedTime
+            }))
+        .pipe(ttf2woff2())
+        .pipe(dest('dist/fonts'))
 }
 
 async function copyResources(){
-    copyImg()
     copyFonts()
+    fontsConvertToWoff()
+    fontsConvertToWoff2()
     copySvg()
-    copyVideo()
-}
-
-function cleanDistImg() {
-    return src('dist/images/*')
-        .pipe(deletefiles())
+    await copyImg()
+    webpConvert()
 }
 
 function cleanDist() {
@@ -110,9 +136,14 @@ function cleanDist() {
         .pipe(deletefiles())
 }
 
-module.exports.cleanimg = cleanDistImg
+function deleteWebp() {
+    return src('src/assets/**/*.webp')
+        .pipe(deletefiles())
+}
 
 module.exports.cleandist = cleanDist
+
+module.exports.deletewebp = deleteWebp
 
 module.exports.start = series(
     cleanDist,
@@ -131,8 +162,3 @@ module.exports.build = series(
     pages,
     copyResources
 )
-
-//Что можно добавить в сборку:
-//Склейка и сжатие файлов компонентов JS/SASS/HTML (модуль gulp-include)
-//Объединение svg в спрайт для меньшего количества запросов к серверу
-//Конвертация шрифтов в .woff .woff2
