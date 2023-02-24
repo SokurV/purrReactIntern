@@ -27,15 +27,826 @@
     font-family: 'Avenir_700'
     font-style: normal
     font-weight: 700
-    src: url('../../fonts/Avenir_Heavy.woff')
+    src: url('../../fonts/Avenir-Heavy.woff')
 @font-face
     font-family: 'Avenir_900'
     font-style: normal
     font-weight: 900
-    src: url('../../fonts/Avenir_Black.woff')
+    src: url('../../fonts/Avenir-Black.woff')
+
+$block_color-background: #000
+
+@mixin headFont()
+    font-family: 'Montserrat_700'
+    font-size: 51px
+    line-height: 62px
+    color: #fff
+
+@mixin textFont()
+    font-family: 'NotoSans_400'
+    font-size: 18px
+    line-height: 25px
+    color: #fff
+
+@mixin iphoneImgWrap()
+    display: flex
+    justify-content: center
+    align-items: center
+    overflow: hidden
 
 *
     margin: 0
     padding: 0
     box-sizing: border-box
-    font-family: 'Montserrat_700'
+
+a
+    text-decoration: none
+    color: #fff
+
+body
+    display: flex
+    justify-content: center
+    align-items: flex-start
+
+
+.container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    overflow: hidden
+    width: 1440px 
+
+.header
+    display: flex
+    justify-content: flex-start
+
+.header_style
+    background-color: transparent
+
+.header__logo
+    margin-left: 85px
+    margin-top: 23px
+
+.header__notab
+    width: 96px
+    margin-left: 8px
+    margin-top: 69px
+
+.header__human-icon
+    width: 26px
+    margin-left: 108px
+    margin-top: 69px
+
+.header__login-link
+    margin-left: 14px
+    margin-top: 69px
+
+.header__login-link_style
+    color: #fff
+    font-family: 'NotoSans_500'
+    font-size: 18px
+    line-height: 25px
+    height: 25px
+    border: 1px solid #000
+    cursor: pointer
+
+.header__login-link_style:hover
+    border-bottom: 1px solid #fff 
+
+.block
+    max-width: 1440px
+    width: 100%
+    position: relative
+
+.block_style
+    background-color: $block_color-background
+
+.block-1::before
+    content: ''
+    position: absolute
+    top: -70px
+    left: 800px
+    width: 662px
+    height: 783px
+    background: rgba(250, 0, 255, 0.2)
+    filter: blur(125px)
+    transform: rotate(-105.26deg)
+
+.block-1-text-content::before
+    content: ''
+    position: absolute
+    left: 93px
+    top: 338px
+    width: 125px
+    height: 125px
+    background:  rgba(96, 92, 234, 0.5)
+    filter: blur(50px)
+
+.block-1-text-content
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    max-height: 760px
+    position: relative
+
+.block-1__head
+    margin: 143px 25px 0 100px
+    max-width: 643px
+
+.block-1__head_style
+    @include headFont()
+    font-size: 64px
+    line-height: 70px
+        
+.block-1__text 
+    margin: 129px 15px 0 209px
+
+    
+.block-1__text_style
+    @include textFont()
+    font-size: 20px
+    line-height: 27px
+
+.block-1__iphone-image
+    @include iphoneImgWrap()
+    margin-top: 10px
+    height: 668px
+    width: 333px
+
+.block-1__line
+    width: 76px
+    position: absolute
+    left: 105px
+    top: 372px
+
+.download
+    display: flex
+    justify-content: space-between
+    margin-left: 100px
+    margin-right: 163px
+    margin-top: 83px
+    margin-bottom: 118px
+
+.download_block-9
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    margin: 0
+    margin-top: 91px
+
+//.download__head 
+    
+.download__head_style
+    @include headFont()
+    text-transform: uppercase
+    font-size: 35px
+    line-height: 70px
+
+.download__head_block-9
+    font-family: 'NotoSans_500'
+    font-size: 24px
+    line-height: 33px
+    letter-spacing: 0.03em
+
+.download-link-wrapper
+    display: flex
+    justify-content: space-between
+    width: 378px
+
+.download-link-wrapper_block-9
+    width: 610px
+    margin-top: 33px
+
+.download__link
+    display: block
+    transition-duration: 150ms
+
+.download__link:hover
+    position: relative
+    transform: scale(1.05)
+
+.block-9__link_app-store
+    width: 259px
+
+.block-9__link_google-pay
+    width: 292px
+
+.cookie
+    position: absolute
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 93px
+    top: 977px
+
+.cookie_style
+    background: #212834
+
+.cookie__text 
+    margin-left: 100px
+    
+.cookie__text_style
+    @include textFont()
+    font-size: 14px
+    line-height: 19px
+
+.cookie__button 
+    width: 132px
+    height: 50px
+    margin-right: 24px
+    
+.cookie__button_style
+    @include textFont()
+    font-size: 14px
+    line-height: 19px
+    text-transform: uppercase
+    background: rgba(255, 255, 255, 0.1)
+    border: 0.5px solid #fff
+    border-radius: 6px
+    cursor: pointer
+    transition-duration: 150ms
+
+.cookie__button_style:hover
+    border: 2px solid #fff
+    
+.cookie__button_style:active
+    background: #000
+
+.text-blocks-wrapper
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    margin: 179px 176px 0px
+
+.text-block 
+    width: 503px
+    margin-bottom: 55px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 55px
+    padding-right: 90px
+    text-align: left
+
+.text-block_style
+    @include textFont()
+    font-family: 'NotoSans_500'
+    font-size: 30px
+    font-weight: 500
+    line-height: 40px
+    border: 2px solid rgba(255, 255, 255, 0.5)
+    border-radius: 21px
+
+.text-block__link 
+    display: block
+    margin-top: 30px
+
+.text-block__link_style
+    @include textFont()
+    font-size: 24px
+    line-height: 33px
+    font-weight: 400
+    text-decoration: none
+
+.text-block__link_style:hover
+    text-decoration: underline
+
+.block-2
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    padding-top: 246px
+    padding-bottom: 283px
+
+.block-2::before
+    content: ''
+    position: absolute
+    top: 252px
+    right: 239px
+    width: 85px
+    height: 85px
+    background: #F101BF
+    opacity: 0.7
+    filter: blur(50px)
+
+.block-2__iphone-hidden
+    @include iphoneImgWrap()
+    width: 1000px
+    height: 498px
+    position: relative
+    left: -14px
+
+.block-2-text-container
+    margin-right: 163px
+    max-width: 358px
+    position: relative
+
+.block-2__head 
+    margin-bottom: 23px
+    
+.block-2__head_style
+    @include headFont()
+
+.block-2__text
+    max-width: 315px
+    
+.block-2__text_style
+    @include textFont()
+
+.block-3
+    background-image: image-set(url("../../assets/block-3/background.webp") 1x, url("../../assets/block-3/background@2x.webp") 2x, url("../../assets/block-3/background.png") 1x, url("../../assets/block-3/background@2x.png") 2x) 
+    background-position: top center
+    background-repeat: no-repeat
+    min-height: 1120px
+
+.block-3-wrapper
+    display: flex
+    align-items: flex-end
+    justify-content: flex-start
+    position: absolute
+    top: 450px
+
+.block-3-iphone-wrapper
+    @include iphoneImgWrap()
+
+.block-3__iphone-left
+    margin-left: 100px
+
+.block-3__iphone-right
+    margin-left: 50px
+
+.block-3-text-container
+    margin-left: 128px
+    margin-bottom: 74px
+
+.block-3__head 
+    margin-bottom: 23px
+    
+.block-3__head_style
+    @include headFont()
+
+.block-3__text
+    max-width: 315px
+    
+.block-3__text_style
+    @include textFont()
+
+.block-4
+    display: flex
+    justify-content: space-between
+    align-items: flex-start    
+
+.block-4-text-container
+    position: relative
+    margin-left: 100px
+    margin-top: 294px
+
+.block-4__head 
+    margin-bottom: 23px
+    
+.block-4__head_style
+    @include headFont()
+    max-width: 497px
+
+.block-4__text
+    max-width: 395px
+    
+.block-4__text_style
+    @include textFont()
+
+.block-4-img-container
+    position: relative
+    margin: 205px 114px 223px 0px
+    width: 708px
+    min-height: 528px
+
+.block-4__img
+    position: absolute
+
+.block-4__img-1
+    top: 0
+    left: 312px
+    
+.block-4__img-2
+    top: 184px
+    left: 130px
+
+.block-4__img-3
+    top: 184px
+    left: 436px
+
+.block-4__img-4
+    top: 252px
+    left: 0
+
+.block-4__img-5
+    top: 294px
+    left: 254px
+    z-index: 2
+
+.block-4__img-6
+    top: 395px
+    left: 182px
+
+.block-4__img-7
+    bottom: 0
+    right: 0
+
+.block-5
+    min-height: 1234px
+
+.block-5-background
+    width: 1440px
+    position: absolute
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+
+.block-5__background-image-left
+    position: relative
+
+.block-5__background-image-left::before
+    content: ''
+    position: absolute
+    width: 778px
+    height: 606px
+    background: linear-gradient(180deg, #000000 -3.1%, rgba(0, 0, 0, 0) 56.76%, #000000 83.92%)
+    background-repeat: no-repeat
+    background-position: top center
+
+.block-5-content-wrapper
+    position: relative
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    margin-left: 195px
+    margin-right: 56px
+
+.block-5-text-container
+    margin-top: 537px
+
+.block-5__head 
+    margin-bottom: 23px
+    
+.block-5__head_style
+    @include headFont()
+
+.block-5__text
+    max-width: 315px
+    margin-bottom: 58px
+    
+.block-5__text_style
+    @include textFont()
+
+.block-5__iphone-top
+    margin-top: 225px
+
+.block-5__iphone-bottom
+    margin-top: 566px
+
+.block-6__background
+    margin-top: 150px
+    margin-bottom: 144px
+    position: relative
+
+.block-6-gradient-wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+    position: absolute
+    top: -150px
+    width: 100%
+    height: 950px
+    z-index: 3
+
+.block-6-gradient
+    width: 100%
+    max-width: 1022px
+    height: 100%
+    max-height: 950px
+    border-radius: 476px
+    background: linear-gradient(12.08deg, #F101BF 2.82%, #0066FF 97.06%)
+    opacity: 0.15
+    filter: blur(155.784px)
+
+.block-6__center-container
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    padding-top: 42px
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 4
+
+.block-6__center-wrapper
+    position: relative
+
+//.block-6-iphone
+
+.block-6-arrow
+    position: absolute
+    right: -190px
+    top: 185px
+
+.block-6-arrow-description
+    position: relative
+    left: 81px
+    @include headFont()
+    font-size: 21px
+    line-height: 26px
+
+.block-6-text-container
+    position: relative
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 0 100px
+    z-index: 4
+
+//.block-6__head 
+    
+.block-6__head_style
+    @include headFont()
+
+//.block-6__text
+    
+.block-6__text_style
+    @include textFont()
+
+.block-7::before
+    content: ''
+    display: block
+    position: absolute
+    top: 359px
+    right: -7.63%
+    width: 287px
+    height: 267px
+    background: linear-gradient(12.08deg, #F101BF 2.82%, #0066FF 97.06%)
+    opacity: 0.2
+    filter: blur(125px)
+    transform: rotate(5.78deg)
+
+.block-7-text-wrapper
+    width: 100%
+    display: flex
+    justify-content: flex-end
+    align-items: flex-start
+
+.block-7-text-container 
+    margin-top: 192px 
+    margin-right: 160px
+
+.block-7__head
+    margin-bottom: 23px
+    
+.block-7__head_style
+    @include headFont()
+
+//.block-7__text
+    
+.block-7__text_style
+    @include textFont()
+
+.block-7-content-container
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+
+//.block-7__background-image
+
+.block-7__text-block
+    position: absolute
+    padding: 28px
+
+.block-7__text-block_style
+    font-family: 'Roboto_500'
+    color: #fff
+    font-size: 22px
+    line-height: 27px
+    background-color: $block_color-background
+    border-radius: 18px
+    border: 0.8px solid rgba(255, 255, 255, 0.5)
+    
+.block-7__text-block-1
+    top: 204px
+    right: 387px
+
+.block-7__text-block-2
+    top: 359px
+    left: 287px
+
+.block-7__text-block-3
+    top: 730px
+    left: 509px
+
+.block-7__text-block-4
+    top: 639px
+    right: 249px
+
+.block-8
+    min-height: 1003px
+    background-image: url('../../assets/block-8/background-words2.svg')
+    background-position: center
+    background-repeat: no-repeat
+
+.block-8-content-container
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 40px
+
+.block-8-img-wrapper
+    position: absolute
+
+.block-9
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+.block-9::before
+    content: ''
+    display: block
+    width: 336px
+    height: 341px
+    position: absolute
+    bottom: 250px
+    right: -80px
+    background: linear-gradient(12.08deg, #F101BF 2.82%, #0066FF 97.06%)
+    opacity: 0.3
+    filter: blur(125px)
+    transform: rotate(5.78deg)
+
+
+.block-9-text-container
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin-top: 13px
+
+.block-9-text-container::before
+    content: ''
+    display: block
+    position: absolute
+    top: -50px
+    left: -90px
+    width: 247px
+    height: 250px
+    background: linear-gradient(12.08deg, #F101BF 2.82%, #0066FF 97.06%)
+    opacity: 0.3
+    filter: blur(125px)
+    transform: rotate(5.78deg)
+
+.block-9__head 
+    position: relative
+    
+.block-9__head_style
+    @include headFont()
+    text-align: center
+
+.block-9__text
+    position: relative
+    
+.block-9__text_style
+    @include textFont()
+    text-align: center
+
+.form
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    margin-top: 82px
+    border: none
+
+.form__input
+    display: block
+    margin-bottom: 23px
+
+.city-fields-wrapper
+    width: 100%
+    display: flex
+    justify-content: space-between
+
+.input-field
+    width: 818px
+    height: 83px
+    padding-left: 23px
+
+.input-field_short
+    width: 397px
+
+.input-field_style
+    @include textFont()
+    font-size: 18px
+    line-height: 25px
+    color: #000
+    border-radius: 10px
+    border: 2px solid #000
+    outline: none
+    cursor: pointer
+
+.input-field_style::placeholder
+    @include textFont()
+    font-size: 18px
+    line-height: 25px
+    color: #BFBFBF
+
+.input-field:invalid
+    border: 2px solid #F00
+
+.input-field_message
+    height: 200px
+    padding-top: 26px
+
+.button-form
+    display: block
+    width: 398px
+    height: 80px 
+    margin-top: 60px
+    
+.button-form_style
+    @include headFont()
+    font-size: 24px
+    line-height: 29px
+    color: #fff
+    background: #000000
+    border: 1px solid #FFFFFF
+    border-radius: 10px
+    cursor: pointer
+    transition-duration: 150ms
+    
+.button-form_style:hover
+    border: 3px solid #fff
+
+.footer
+    padding-top: 150px
+    padding-bottom: 86px
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    position: relative
+
+.footer::before
+    content: ''
+    display: block
+    width: 406px
+    height: 412px
+    position: absolute
+    top: 60px
+    left: -59px
+    background: linear-gradient(12.08deg, #F101BF 2.82%, #0066FF 97.06%)
+    opacity: 0.3
+    filter: blur(125px)
+    transform: rotate(5.78deg)
+
+.footer__contact-us
+    max-width: 180px
+    margin-left: 158px
+    height: 122px
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: space-between
+    position: relative
+
+.footer__links
+    max-width: 120px
+    margin-right: 100px
+    height: 75px
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: space-between
+
+.footer-text
+    margin-bottom: 8px
+
+.footer-text_style
+    font-family: 'Avenir_500'
+    font-size: 18px
+    line-height: 25px
+    color: #fff
+
+
+.footer-link
+    display: block
+
+.footer-link_style
+    font-family: 'Avenir_500'
+    font-size: 18px
+    line-height: 25px
+    color: #fff
+
+.footer-link_style:hover
+    text-decoration: underline
