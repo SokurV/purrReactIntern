@@ -233,12 +233,16 @@ body
     width: 292px
 
 .cookie
-    position: absolute
+    position: fixed
     display: flex
     justify-content: space-between
     align-items: center
     height: 93px
-    top: 977px
+    bottom: -93px
+    z-index: 5
+
+.cookie_display-none
+    display: none
 
 .cookie_style
     background: #212834
@@ -766,8 +770,10 @@ body
     border: 2px solid #F00
 
 .input-field_message
-    height: 200px
+    min-height: 200px
+    max-height: 450px
     padding-top: 26px
+    resize: vertical
 
 .button-form
     display: block

@@ -150,7 +150,7 @@ module.exports.start = series(
     styles, 
     dev_js,
     pages, 
-    copyResources,
+    copyResources, 
     startServer, 
     watching
 )
@@ -161,4 +161,18 @@ module.exports.build = series(
     build_js,
     pages,
     copyResources
+)
+
+module.exports.faststart = series(
+    styles, 
+    dev_js,
+    pages,
+    startServer, 
+    watching
+)
+
+module.exports.fastbuild = series(
+    styles, 
+    build_js,
+    pages,
 )
