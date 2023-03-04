@@ -68,6 +68,9 @@ body
     justify-content: center
     align-items: flex-start
 
+img, source
+    position: relative
+
 
 .container
     display: flex
@@ -317,43 +320,64 @@ body
     text-decoration: underline
 
 .block-2
+    min-height: 1029px
     display: flex
     justify-content: space-between
     align-items: flex-start
     padding-top: 246px
     padding-bottom: 283px
+    position: relative
 
-.block-2::before
-    content: ''
+.block-2__iphone-center
+    @include iphoneImgWrap()
+    overflow: visible
+    width: 372px
+    height: 746px
+    position: relative
+    left: -1000px
+    display: none
+    opacity: 0
+
+.iphone-center-background
     position: absolute
-    top: 252px
-    right: 239px
-    width: 85px
-    height: 85px
-    background: #F101BF
-    opacity: 0.7
-    filter: blur(50px)
+    width: 501px
+    height: 711px
+    background: radial-gradient(62.81% 61.84% at 69.82% 26.13%, #CA13A4 0%, #8A0DBC 35.94%, #530FDC 78.13%, #0303F0 100%)
+    opacity: 0
+    filter: blur(98.1643px)
 
 .block-2__iphone-hidden
     @include iphoneImgWrap()
     width: 1000px
     height: 498px
     position: relative
-    left: -14px
 
 .block-2-text-container
     margin-right: 163px
     max-width: 358px
     position: relative
 
+.block-2-text-container::before
+    content: ''
+    position: absolute
+    top: 20px
+    right: 85px
+    width: 85px
+    height: 85px
+    background: #F101BF
+    opacity: 0.7
+    filter: blur(50px)
+
 .block-2__head 
     margin-bottom: 23px
+    position: relative
     
 .block-2__head_style
     @include headFont()
 
 .block-2__text
     max-width: 315px
+    position: relative
     
 .block-2__text_style
     @include textFont()
